@@ -9,8 +9,8 @@
     date_format(t2.dtm_create,'%Y-%m-%d %H:%i:%S') dtm_create
     ,t3.v_wind_direct_name p005name
 	FROM t_equipment_info2 t 
-	INNER JOIN t_user_equipment_relation t1 
-	  ON t1.i_equipment_id = t.i_equipment_id 
+	<!--INNER JOIN t_user_equipment_relation t1 
+	  ON t1.i_equipment_id = t.i_equipment_id  -->
 	LEFT JOIN t_equipment_data2 t2 
 	  ON t.v_equipment_name = t2.v_equipment_name 
 	LEFT JOIN t_wind_direct_dic t3 
@@ -19,9 +19,10 @@
     <if test="v_equipment_name != null" >
       and t.v_equipment_name=#{v_equipment_name}
     </if>
+    <!-- 
     <if test="i_user_id != null" >
       and t1.i_user_id=#{i_user_id}
-    </if>
+    </if>-->
     ORDER BY t.v_equipment_name
   </select>
   <!-- 更新info2表，新系统用这个表-->
@@ -40,4 +41,14 @@
   			v_phone = #{v_phone}
   		where v_equipment_name = #{eid}
   </update>
+  
+  <insert id="insertTEquipmentInfo2" parameterType="map">
+  		insert into t_equipment_info2(v_equipment_name,v_equipment_check_code,v_company,v_address,v_phone,n_longitude_bd,n_latitude_bd)
+  		values(#{ename},'111111',#{company},#{project},#{tel},#{longi},#{lati})
+  </insert>
+  
+  <select id="selectTEquipmentInfo2ByName" resultType="com.environment.mypuls.entity.TEquipmentInfo2" parameterType="string">
+  		select * from t_equipment_info2
+  		where v_equipment_name=#{ename}
+  </select>
 </mapper>

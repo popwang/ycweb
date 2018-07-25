@@ -39,7 +39,7 @@ public class Equipment_dataContrller extends BaseTOAction {
 
 	@RequestMapping("selectEquipmentData4Chart.htm")
 	@ResponseBody
-	@ApiOperation(value = "返回设备数据")
+	@ApiOperation(value = "返回设备数据，一条用于加载地图，一条用于加载柱图")
 	public Map<String,Object> selectEquipmentData4Chart(String vEquipmentName, Integer shu) {
 		Map<String,Object> map = new HashMap<String,Object>();
 		if (vEquipmentName != null && !"".equals(vEquipmentName)) {

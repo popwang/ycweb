@@ -20,4 +20,12 @@ public interface ITEquipmentInfo2Service extends IService<TEquipmentInfo2> {
     void updateTEquipmentInfo2(Map<String,Object> map);
     
     void updateTEquipmentInfo(Map<String,Object> map);
+    
+    void insertTEquipmentInfo2(Map<String,Object> map);
+    /**
+	 * 根据设备名称查询设备信息
+	 * @param v_equipment_name
+	 * @return
+	 */
+	List<TEquipmentInfo2> selectTEquipmentInfo2ByName(String v_equipment_name);
 }

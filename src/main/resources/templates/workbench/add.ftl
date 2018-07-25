@@ -1,140 +1,128 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <base href=" ${basepath}">
+    <base href=" ${basepath!}">
     <meta name="viewport" content="width=device-width" />
     <title>设备添加工作台</title>
-
 <#include "/public_css.ftl" >
     <link rel="stylesheet" href="css/model/rygj.css">
 </head>
 <body style="background-color:#fafafa">
 <div class="col-md-12">
-	<div class="col-md-6">
 		<div class="panel panel-default ">
-			<div class="panel-heading">
-				<h4>编号生成</h4>
-			</div>
-			<div class="panel-body">
-				<form action="">
-					<div class="form-group">
-						<label>设备编号</label>
-						<div class="input-group" style="width:300px">
-	                        <input type="text" class="form-control" id="equipment_id">
-	                        <div class="input-group-btn">
-	                            <button type="button" class="btn btn-white dropdown-toggle" data-toggle="dropdown">
-	                                <span class="caret"></span>
-	                            </button>
-	                            <ul class="dropdown-menu dropdown-menu-right" role="menu"></ul>
-	                        </div>
-	                    </div>
-					</div>
-					<div class="form-group">
-						<label for="system">要对接的平台</label>
-						<select name="system" id="system" class="form-control" style="width:300px;"></select>
-					</div>
-					<div class="form-group">
-						<button type="submit" class="btn btn-sm btn-warning">生成编号</button>
-					</div>
-					<div class="form-group">
-						<label for="systemno">平台编号</label>
-						<input name="systemno" id="systemno" class="form-control" style="width:300px;">
-					</div>
-				</form>
-			</div>
-		</div>
-	</div>
-	
-	<div class="col-md-6">
-		<div class="panel panel-default clo-md-5">
 			<div class="panel-heading">
 				<h4>设备添加</h4>
 			</div>
 			<div class="panel-body">
-				<form action="">
-					<div class="form-group">
-						<label>设备编号</label>
-						<div class="input-group" style="width:300px">
-	                        <input type="text" class="form-control" id="equipment_id2">
-	                        <div class="input-group-btn">
-	                            <button type="button" class="btn btn-white dropdown-toggle" data-toggle="dropdown">
-	                                <span class="caret"></span>
-	                            </button>
-	                            <ul class="dropdown-menu dropdown-menu-right" role="menu"></ul>
-	                        </div>
-	                    </div>
+				<div class="row">
+					<div class="col-md-6">
+						<div class="form-group">
+							<label>设备编号</label>
+							<div class="input-group" style="width:300px">
+		                        <input name="ename" id="ename" class="form-control">
+		                    </div>
+						</div>
+						<div class="form-group">
+							<label for="project">项目名称</label>
+							<input name="project" id="project" class="form-control" style="width:300px;">
+						</div>
+						<div class="form-group">
+							<label for="company">施工单位</label>
+							<input name="company" id="company" class="form-control" style="width:300px;">
+						</div>
+						<div class="form-group">
+							<label for="tel">联系电话</label>
+							<input name="tel" id="tel" class="form-control" style="width:300px;">
+						</div>
 					</div>
-					
-					<div class="form-group">
-						<label for="system">要对接的平台</label>
-						<select name="system" id="system" class="form-control" style="width:300px;"></select>
+					<div class="col-md-6">
+						<div class="form-group">
+							<label for="longi">百度地图经度</label>
+							<input name="longi" id="longi" class="form-control" style="width:300px;">
+						</div>
+						<div class="form-group">
+							<label for="lati">百度地图纬度</label>
+							<input name="lati" id="lati" class="form-control" style="width:300px;">
+						</div>
+						<div class="form-group">
+							<button type="button" onclick="javascript:submitForm();" class="btn btn-sm btn-warning">添加设备</button>
+						</div>
+						<span id="msg">${msg! }</span>
 					</div>
-					
-					<div class="form-group">
-						<label for="systemno">生成的平台编号</label>
-						<input name="systemno" id="systemno" class="form-control" style="width:300px;">
-					</div>
-					<button type="submit" class="btn btn-sm btn-default">设备添加</button>
-				</form>
+				</div>
 			</div>
 		</div>
-	</div>
-	
 </div>
 </body>
 <#include "/public_js.ftl" >
 <script src="js/plugins/echarts/echarts.min.js"></script>
 <script type="text/javascript">
-/**
- * 页面打开时自动加载内容
- */
-$(function ($) {
-        $("#equipment_id").bsSuggest({
-            idField: "iEquipmentId",
-            keyField: "vEquipmentName",
-            searchFields: [ "vEquipmentName"],  //有效搜索字段，
-            effectiveFields: ["iEquipmentId","vEquipmentName"],
-            effectiveFieldsAlias:{iEquipmentId:"设备ID",vEquipmentName: "设备名称"}, //有效字段的别名对象，用于 header 的显示
-            clearable: true,
-            url:'Equipment_info2/getEquipmentinfo2.htm',
-            processData: function(json){
-                json.value=json.list
-                if(json.list.length<1){
-                    alert("没有设备信息!");
-                }
-                return json;
-            }
-        }).on('onDataRequestSuccess', function (e, result) {
-            console.log('从 json.data 参数中获取，不会触发 onDataRequestSuccess 事件', result);
-        }).on('onSetSelectValue', function (e, keyword, data) {
-            console.log('onSetSelectValue: ', keyword, data);
-        }).on('onUnsetSelectValue', function () {
-            console.log("onUnsetSelectValue");
-        });
-        
-        $("#equipment_id2").bsSuggest({
-            idField: "iEquipmentId",
-            keyField: "vEquipmentName",
-            searchFields: [ "vEquipmentName"],  //有效搜索字段，
-            effectiveFields: ["iEquipmentId","vEquipmentName"],
-            effectiveFieldsAlias:{iEquipmentId:"设备ID",vEquipmentName: "设备名称"}, //有效字段的别名对象，用于 header 的显示
-            clearable: true,
-            url:'Equipment_info2/getEquipmentinfo2.htm',
-            processData: function(json){
-                json.value=json.list
-                if(json.list.length<1){
-                    alert("没有设备信息!");
-                }
-                return json;
-            }
-        }).on('onDataRequestSuccess', function (e, result) {
-            console.log('从 json.data 参数中获取，不会触发 onDataRequestSuccess 事件', result);
-        }).on('onSetSelectValue', function (e, keyword, data) {
-            console.log('onSetSelectValue: ', keyword, data);
-        }).on('onUnsetSelectValue', function () {
-            console.log("onUnsetSelectValue");
-        });
-        
-});
+function submitForm(){
+	var error = $("#msg");
+	var ename = $("#ename").val();
+	var project = $("#project").val();
+	var company = $("#company").val();
+	var tel = $("#tel").val();
+	var longi = $("#longi").val();
+	var lati = $("#lati").val();
+	
+	if(ename.length==0){
+		error.html("设备名称不能为空！");
+		return false;
+	}
+	if(project.length==0){
+		error.html("项目名称不能为空！");
+		return false;
+	}
+	if(company.length==0){
+		error.html("施工单位不能为空！");
+		return false;
+	}
+	if(tel.length==0){
+		error.html("联系电话不能为空！");
+		return false;
+	}
+	if(longi.length==0){
+		error.html("经度不能为空！");
+		return false;
+	}
+	if(lati.length==0){
+		error.html("纬度不能为空！");
+		return false;
+	}
+	
+	$.ajax({
+		url:"Equipment_info2/addEquipmentinfo2.htm",
+		cache:false,
+        async:true,
+        dataType:'json',
+        type:'post',
+		data:{
+			ename:ename,
+			project:project,
+			company:company,
+			tel:tel,
+			longi:longi,
+			lati:lati
+		},
+		success:function(result){
+			if(result.flag=="false"){
+				error.html(result.msg);
+			}else{
+				error.html(result.msg);
+				$("#ename").val("");
+				$("#project").val("");
+				$("#company").val("");
+				$("#tel").val("");
+				$("#longi").val("");
+				$("#lati").val("");
+			}
+		},
+		error:function(){
+			error.html("添加失败，请检查输入是否正确！");
+		}
+	});
+}
+
 </script>
 </html>

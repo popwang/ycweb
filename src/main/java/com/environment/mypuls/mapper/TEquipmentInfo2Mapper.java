@@ -33,4 +33,16 @@ public interface TEquipmentInfo2Mapper extends BaseMapper<TEquipmentInfo2> {
      * @return
      */
 	int updateTEquipmentInfo(Map<String,Object> map);
+	/**
+	 * 添加新设备到info2表
+	 * @param info
+	 * @return
+	 */
+	int insertTEquipmentInfo2(Map<String,Object> map);
+	/**
+	 * 根据设备名称查询设备信息
+	 * @param v_equipment_name
+	 * @return
+	 */
+	List<TEquipmentInfo2> selectTEquipmentInfo2ByName(String v_equipment_name);
 }

@@ -30,4 +30,14 @@ public class TEquipmentInfo2ServiceImpl extends ServiceImpl<TEquipmentInfo2Mappe
 	public void updateTEquipmentInfo(Map<String, Object> map) {
 		 baseMapper.updateTEquipmentInfo(map);
 	}
+
+	@Override
+	public void insertTEquipmentInfo2(Map<String, Object> map) {
+		baseMapper.insertTEquipmentInfo2(map);
+	}
+
+	@Override
+	public List<TEquipmentInfo2> selectTEquipmentInfo2ByName(String v_equipment_name) {
+		return baseMapper.selectTEquipmentInfo2ByName(v_equipment_name);
+	}
 }
