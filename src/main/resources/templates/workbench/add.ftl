@@ -9,7 +9,7 @@
 </head>
 <body style="background-color:#fafafa">
 <div class="col-md-12">
-		<div class="panel panel-default ">
+		<div class="panel panel-default">
 			<div class="panel-heading">
 				<h4>设备添加</h4>
 			</div>
@@ -30,12 +30,13 @@
 							<label for="company">施工单位</label>
 							<input name="company" id="company" class="form-control" style="width:300px;">
 						</div>
+						
+					</div>
+					<div class="col-md-6">
 						<div class="form-group">
 							<label for="tel">联系电话</label>
 							<input name="tel" id="tel" class="form-control" style="width:300px;">
 						</div>
-					</div>
-					<div class="col-md-6">
 						<div class="form-group">
 							<label for="longi">百度地图经度</label>
 							<input name="longi" id="longi" class="form-control" style="width:300px;">

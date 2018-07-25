@@ -78,14 +78,20 @@
 					<tr>
 						<td>项目地址：</td>
 						<td id="address"></td>
+						<td></td>
+						<td></td>
 					</tr>
 					<tr>
 						<td>公司名称：</td>
 						<td id="company"></td>
-					</tr>
-					<tr>
 						<td>联系电话：</td>
 						<td id="phone"></td>
+					</tr>
+					<tr>
+						<td>百度经度：</td>
+						<td id="longi"></td>
+						<td>百度纬度：</td>
+						<td id="lati"></td>
 					</tr>
 				</table>
 				<div style="float: right;">
@@ -115,11 +121,12 @@
 					<h4 style="align-content: center">录入工程信息</h4>
 				</div>
 				<form class="well">
-					<label>项目地址:</label> <input id="v_address" type="text"
-						class="span3"> <label>公司名称:</label> <input id="v_company"
-						type="text" class="span3"> <label>联系电话:</label> <input
-						id="v_phone" type="text" class="span3"> <input
-						type="button" value="保存" class="btn"
+					<label>项目地址:</label> <input id="v_address" type="text" class="span3"> 
+						<label>公司名称:</label> <input id="v_company" type="text" class="span3"> 
+						<label>联系电话:</label> <input id="v_phone" type="text" class="span3"> 
+						<label>百度经度:</label> <input id="n_longi" type="text" class="span3"> 
+						<label>百度纬度:</label> <input id="n_lati" type="text" class="span3"> 
+						<input type="button" value="保存" class="btn" 
 						style="position: relative; right: -200px;"
 						onclick="saveProjectInfo()" />
 				</form>
@@ -137,6 +144,8 @@ function saveProjectInfo(){
 	var v_address = $("#v_address").val();
 	var v_company = $("#v_company").val();
 	var v_phone = $("#v_phone").val();
+	var n_longi = $("#n_longi").val();
+	var n_lati = $("#n_lati").val();
 	if(!eid){
 		alert("请选择一个设备号！");
 		return;
@@ -148,7 +157,9 @@ function saveProjectInfo(){
         	eid:eid,
         	v_address:v_address,
         	v_company:v_company,
-        	v_phone:v_phone
+        	v_phone:v_phone,
+        	n_longi:n_longi,
+        	n_lati:n_lati
         },
         cache:false,
         async:true,
@@ -159,10 +170,14 @@ function saveProjectInfo(){
             	$("#address").html(v_address);
                 $("#company").html(v_company);
                 $("#phone").html(v_phone);
+                $("#longi").html(n_longi);
+                $("#lati").html(n_lati);
                 //清空输入项
                 $("#v_address").val("");
             	$("#v_company").val("");
             	$("#v_phone").val("");
+            	$("#n_longi").val("");
+            	$("#n_lati").val("");
             }
             $(".modify-win").css("display","none");
         },
@@ -349,6 +364,8 @@ function loadEquipmentInfo(objdata){
     $("#address").html(objdata.vAddress==''?"空数据":objdata.vAddress);
     $("#company").html(objdata.vCompany==''?"空数据":objdata.vCompany);
     $("#phone").html(objdata.vPhone==''?"空数据":objdata.vPhone);
+    $("#longi").html(objdata.nLongitudeBd==''?"空数据":objdata.nLongitudeBd);
+    $("#lati").html(objdata.nLatitudeBd==''?"空数据":objdata.nLatitudeBd);
 }
 /**
  * 加载柱图数据
@@ -383,7 +400,6 @@ function loadBarChart(objdate,datezu,data25zu,data10zu,data100zu) {
                 var myseries = option.series;
                   for (var i = 0; i < myseries.length; i++) {
                   res+= myseries[i].name+"值:   "+myseries[i].data[params.dataIndex]+"<br>";
-
                 }
                 return res;
             }

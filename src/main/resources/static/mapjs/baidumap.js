@@ -71,7 +71,7 @@ var map = new BMap.Map("allmap");    // 创建Map实例
         });
     });
 
-   //    // 编写自定义函数,创建标注
+   //编写自定义函数,创建标注
    function addMarker(obj,i){
 	   if(obj.nLatitudeBd==null||obj.nLongitudeBd==null){
 	       return;
@@ -85,8 +85,8 @@ var map = new BMap.Map("allmap");    // 创建Map实例
        }
        marker.enableDragging() ;// 开启拖拽功能
        marker.setTitle(obj.vEquipmentName);//添加标题
-       var label = new BMap.Label("",//"设备号:"+obj.vEquipmentName
-       				{offset:new BMap.Size(-14,-5)});
+       var label = new BMap.Label(obj.vAddress,//"设备号:"+obj.vEquipmentName
+       				{offset:new BMap.Size(-30,-12)});
         label.setStyle({
             border:"none"
        	});

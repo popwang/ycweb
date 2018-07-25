@@ -30,7 +30,9 @@
   		update t_equipment_info2
   		set v_address = #{v_address},
   			v_company = #{v_company},
-  			v_phone = #{v_phone}
+  			v_phone = #{v_phone},
+  			n_longitude_bd=#{n_longi},
+  			n_latitude_bd=#{n_lati}
   		where v_equipment_name = #{eid}
   </update>
   <!-- 更新info表，老系统用这个表，因为历史原因，info表不能存中文字段，在存储时做了转码，后来删掉表重建解决了这个问题-->

@@ -56,16 +56,25 @@ public class Equipment_inif2Contrller extends BaseTOAction {
 		String v_address = this.request.getParameter("v_address");
 		String v_company = this.request.getParameter("v_company");
 		String v_phone = this.request.getParameter("v_phone");
+		String n_longi = this.request.getParameter("n_longi");
+		String n_lati = this.request.getParameter("n_lati");
 
 		if (eid != null && !"".equals(eid)) {
 			map.put("eid", eid);
 			map.put("v_address", v_address);
 			map.put("v_company", v_company);
 			map.put("v_phone", v_phone);
-			itEquipmentInfoService.updateTEquipmentInfo2(map);
-			// itEquipmentInfoService.updateTEquipmentInfo(map);
-			map.clear();
-			map.put("msg", "true");
+			map.put("n_longi", n_longi);
+			map.put("n_lati", n_lati);
+			try{
+				itEquipmentInfoService.updateTEquipmentInfo2(map);
+				map.clear();
+				map.put("msg", "true");
+			}catch(Exception e){
+				e.printStackTrace();
+				map.clear();
+				map.put("msg", "false");
+			}
 		} else {
 			map.put("msg", "false");
 		}
