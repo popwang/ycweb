@@ -447,7 +447,7 @@ body {
 }
 
 body,button,input,select,textarea {
-	font: .9em "Î¢ÈíÑÅºÚ";
+	font: .9em "Î¢ï¿½ï¿½ï¿½Åºï¿½";
 	-webkit-font-smoothing: antialiased;
 	-moz-osx-font-smoothing: grayscale;
 	overflow: -Scroll;
@@ -485,16 +485,16 @@ a:hover {
 a:active {
 	text-decoration: none;
 }
-/* ÉèÖÃ¹ö¶¯ÌõµÄÑùÊ½ */
+/* ï¿½ï¿½ï¿½Ã¹ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ê½ */
 ::-webkit-scrollbar {
 	width: 0px;
 }
-/* ¹ö¶¯²Û */
+/* ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ */
 ::-webkit-scrollbar-track {
 	-webkit-box-shadow: inset006pxrgba(0, 0, 0, 0.3);
 	border-radius: 10px;
 }
-/* ¹ö¶¯Ìõ»¬¿é */
+/* ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ */
 ::-webkit-scrollbar-thumb {
 	border-radius: 10px;
 	background: rgba(0, 0, 0, 0.1);
@@ -505,14 +505,14 @@ a:active {
 	width: 3px;
 	background: rgba(0, 0, 0, 0.3);
 }
-/*±³¾°Ðé»¯*/
+/*ï¿½ï¿½ï¿½ï¿½ï¿½é»¯*/
 .blur {
 	-webkit-filter: blur(10px); /* Chrome, Opera */
 	-moz-filter: blur(10px);
 	-ms-filter: blur(10px);
 	filter: blur(10px);
 }
-/*ÇøÓòÄÚÐé»¯  Öµ:ÏñËØ*/
+/*ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½é»¯  Öµ:ï¿½ï¿½ï¿½ï¿½*/
 .blur {
 	-webkit-filter: blur(2px); /* Chrome, Opera */
 	-moz-filter: blur(2px);
@@ -536,7 +536,7 @@ a:active {
 }
 
 .cont {
-	position: fixed;
+	position: absolute;
 	left: 0;
 	right: 0;
 	top: 0;
@@ -574,7 +574,7 @@ a:active {
 	height: 350px;
 	background: rgba(255, 255, 255, .1);
 	border: 1px solid rgba(255, 255, 255, .5);
-	/*ºÚÉ«µÄÑùÊ½²»ºÃÊ¹*/
+	/*ï¿½ï¿½É«ï¿½ï¿½ï¿½ï¿½Ê½ï¿½ï¿½ï¿½ï¿½Ê¹*/
 	/*color: #fff;*/
 	border-radius: 10px;
 	padding: 50px 15px;
@@ -603,7 +603,7 @@ a:active {
 	top: 0;
 	left: 0;
 	color: #000;
-	/*ºÚÉ«µÄÑùÊ½²»ºÃÊ¹*/
+	/*ï¿½ï¿½É«ï¿½ï¿½ï¿½ï¿½Ê½ï¿½ï¿½ï¿½ï¿½Ê¹*/
 	/*color: #fff;*/
 }
 
@@ -617,13 +617,13 @@ a:active {
 	top: 0;
 	right: 0;
 	color: #000;
-	/*ºÚÉ«µÄÑùÊ½²»ºÃÊ¹*/
+	/*ï¿½ï¿½É«ï¿½ï¿½ï¿½ï¿½Ê½ï¿½ï¿½ï¿½ï¿½Ê¹*/
 	/*color: #fff;*/
 }
 
 .form-group input {
 	padding-left: 34px;
-	/*ºÚÉ«µÄÑùÊ½²»ºÃÊ¹*/
+	/*ï¿½ï¿½É«ï¿½ï¿½ï¿½ï¿½Ê½ï¿½ï¿½ï¿½ï¿½Ê¹*/
 	/*background:rgba(0,0,0,.1);
 			color:#fff;
 			border: 1px solid rgba(255,255,255,.2);*/

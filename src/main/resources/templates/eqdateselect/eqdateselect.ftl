@@ -132,14 +132,9 @@
                 field : 'p010',
                 title : '气压'
             }, {
-                field : 'p011',
-                title : '风级'
-            }, {
                 field : 'dtmCreate',
                 title : '数据插入时间'
-            }
-
-            ]
+            }]
         });
        $("#btn_export").click(function() {
            if(exportParam!=null){

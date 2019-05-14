@@ -94,10 +94,12 @@
 						<td id="lati"></td>
 					</tr>
 				</table>
-				<div style="float: right;">
-					<span><button class="btn btn-info"
-							onclick="modifyProjectInfo();">修改</button></span>
-				</div>
+				<#if user?? && user.iAdmin == 1>
+					<div style="float: right;">
+						<span><button class="btn btn-info"
+								onclick="modifyProjectInfo();">修改</button></span>
+					</div>
+				</#if>
 			</div>
 			<div class="col-md-12 column">
 				<div id="main" style="width: 100%; height: 400px;"></div>

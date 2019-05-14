@@ -30,7 +30,7 @@ import java.util.Map;
  */
 @Controller
 @RequestMapping("Equipment_data")
-@Api(value = "Equipment_dataContrller", description = "设备数据")
+@Api(value = "Equipment_dataContrller", tags = "查询设备数据")
 public class Equipment_dataContrller extends BaseTOAction {
 	@Autowired
 	ITEquipmentInfo2Service itEquipmentInfoService;

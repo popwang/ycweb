@@ -42,21 +42,6 @@ CREATE TABLE `t_equipment_data` (
   `p014` double(10,6) DEFAULT NULL COMMENT '经度',
   `p015` double(10,6) DEFAULT NULL COMMENT '纬度',
   `dtm_create` datetime DEFAULT CURRENT_TIMESTAMP COMMENT '数据插入时间',
-  `p016` double(7,3) DEFAULT NULL,
-  `p017` double(7,3) DEFAULT NULL,
-  `p018` double(7,3) DEFAULT NULL,
-  `p019` double(7,3) DEFAULT NULL,
-  `p020` double(7,3) DEFAULT NULL,
-  `p021` double(7,3) DEFAULT NULL,
-  `p022` double(7,3) DEFAULT NULL,
-  `p023` double(7,3) DEFAULT NULL,
-  `p024` double(7,3) DEFAULT NULL,
-  `p025` double(7,3) DEFAULT NULL,
-  `p026` double(7,3) DEFAULT NULL,
-  `p027` double(7,3) DEFAULT NULL,
-  `p028` double(7,3) DEFAULT NULL,
-  `p029` double(7,3) DEFAULT NULL,
-  `p030` double(7,3) DEFAULT NULL,
   KEY `index_new_1` (`v_equipment_name`,`dtm_create`),
   KEY `index_new_2` (`v_equipment_name`),
   KEY `index_new_3` (`dtm_create`)
@@ -79,37 +64,13 @@ CREATE TABLE `t_equipment_data2` (
   `p013` double(7,3) DEFAULT NULL COMMENT '保留5',
   `p014` double(10,6) DEFAULT NULL COMMENT '经度',
   `p015` double(10,6) DEFAULT NULL COMMENT '纬度',
-  `dtm_create` datetime DEFAULT CURRENT_TIMESTAMP COMMENT '数据插入时间',
-  `p016` double(7,3) DEFAULT NULL,
-  `p017` double(7,3) DEFAULT NULL,
-  `p018` double(7,3) DEFAULT NULL,
-  `p019` double(7,3) DEFAULT NULL,
-  `p020` double(7,3) DEFAULT NULL,
-  `p021` double(7,3) DEFAULT NULL,
-  `p022` double(7,3) DEFAULT NULL,
-  `p023` double(7,3) DEFAULT NULL,
-  `p024` double(7,3) DEFAULT NULL,
-  `p025` double(7,3) DEFAULT NULL,
-  `p026` double(7,3) DEFAULT NULL,
-  `p027` double(7,3) DEFAULT NULL,
-  `p028` double(7,3) DEFAULT NULL,
-  `p029` double(7,3) DEFAULT NULL,
-  `p030` double(7,3) DEFAULT NULL
+  `dtm_create` datetime DEFAULT CURRENT_TIMESTAMP COMMENT '数据插入时间'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='里面只存每个设备最新的一条数据';
 
 CREATE TABLE `t_wind_direct_dic` (
   `i_wind_direct_id` int(11) DEFAULT NULL COMMENT '风向id',
   `v_wind_direct_name` varchar(50) DEFAULT NULL COMMENT '风向'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='风向字典表';
-
-CREATE TABLE `t_order_buffer` (
-  `i_id` bigint(20) NOT NULL AUTO_INCREMENT COMMENT '自增ID',
-  `v_equipment_name` varchar(100) DEFAULT NULL COMMENT '设备名称',
-  `v_order_content` varchar(500) DEFAULT NULL COMMENT '发送内容',
-  `i_send_flag` int(11) DEFAULT NULL COMMENT '发送状态，0未发送，1已发送',
-  `dtm_create` datetime DEFAULT CURRENT_TIMESTAMP COMMENT '数据添加时间',
-  PRIMARY KEY (`i_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8 COMMENT='发送缓存表';
 
 CREATE TABLE `t_user_equipment_relation` (
   `i_user_id` int(11) DEFAULT NULL COMMENT '用户ID',

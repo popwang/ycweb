@@ -33,6 +33,9 @@
                         <div class="logo-element">环保</div>
                     </li>
                   <li>
+                	  <a class="J_menuItem" href="view.htm"><i class="fa fa-columns"></i> <span class="nav-label" style="color:#cdd6ec;">设备总览</span></a>
+                  </li>
+                  <li>
                 	  <a class="J_menuItem" href="workbench/index.htm"><i class="fa fa-columns"></i> <span class="nav-label" style="color:#cdd6ec;">工作台</span></a>
                   </li>
                   <li>
@@ -41,9 +44,12 @@
                   <li>
                       <a class="J_menuItem" href="eqdateselect/index.htm"><i class="fa fa-columns"></i> <span class="nav-label" style="color: #cdd6ec;">设备历史数据</span></a>
                   </li>
-                  <li>
-                      <a class="J_menuItem" href="workbench/add.htm"><i class="fa fa-columns"></i> <span class="nav-label" style="color: #cdd6ec;">设备添加</span></a>
-                  </li>
+                  <#if user?? && user.iAdmin == 1>
+			          <li>
+                      	<a class="J_menuItem" href="workbench/add.htm"><i class="fa fa-columns"></i> <span class="nav-label" style="color: #cdd6ec;">设备添加</span></a>
+                  	  </li>
+			      </#if>
+                  
                 </ul>
             </div>
         </nav>
@@ -53,7 +59,6 @@
             <div class="row border-bottom">
                 <nav class="navbar navbar-static-top" role="navigation" style="margin-bottom: 0">
                     <div class="navbar-header"><a class="navbar-minimalize minimalize-styl-2 btn btn-primary " href="#"><i class="fa fa-bars"></i> </a>
-                        
                     </div>
                 </nav>
             </div>
@@ -62,7 +67,7 @@
                 </button>
                 <nav class="page-tabs J_menuTabs">
                     <div class="page-tabs-content">
-                        <a href="javascript:;" class="active J_menuTab" data-id="workbench/index.htm">工作台</a>
+                        <a href="javascript:;" class="active J_menuTab" data-id="view.htm">设备总览</a>
                     </div>
                 </nav>
                 <button class="roll-nav roll-right J_tabRight"><i class="fa fa-forward"></i>
@@ -70,7 +75,7 @@
                 <a href="quit.htm" class="roll-nav roll-right J_tabExit"><i class="fa fa fa-sign-out"></i> 退出</a>
             </div>
             <div class="row J_mainContent" id="content-main">
-                <iframe class="J_iframe" name="iframe0" width="100%" height="100%" src="workbench/index.htm" frameborder="0" data-id="workbench/index.htm" seamless></iframe>
+                <iframe class="J_iframe" name="iframe0" width="100%" height="100%" src="view.htm" frameborder="0" data-id="view.htm" seamless></iframe>
             </div>
             <div class="footer">
                 <div class="pull-right">&copy; 2017</div>

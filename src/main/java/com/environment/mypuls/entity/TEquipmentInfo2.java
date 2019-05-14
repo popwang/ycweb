@@ -1,6 +1,7 @@
 package com.environment.mypuls.entity;
 
 import java.io.Serializable;
+import java.text.SimpleDateFormat;
 
 import com.baomidou.mybatisplus.annotations.TableField;
 import com.baomidou.mybatisplus.activerecord.Model;
@@ -162,6 +163,30 @@ public class TEquipmentInfo2 extends Model<TEquipmentInfo2> {
 	 */
 	@TableField(exist = false)
 	private String pdtm_create;
+	private long seconds;
+	
+	private String isOnLine;
+	
+	public long getSeconds() {
+		return seconds;
+	}
+
+	public void setSeconds(long seconds) {
+		this.seconds = seconds;
+	}
+
+	public String getIsOnLine() {
+		if(seconds>660 || seconds<=0) {
+			isOnLine = "离线";
+		}else {
+			isOnLine = "在线";
+		}
+		return isOnLine;
+	}
+
+	public void setIsOnLine(String isOnLine) {
+		this.isOnLine = isOnLine;
+	}
 
 	public Double getP001() {
 		return p001;
